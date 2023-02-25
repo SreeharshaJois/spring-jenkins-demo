@@ -3,7 +3,6 @@ pipeline {
 
 	environment {
 		mavenHome = tool 'jenkins-maven'
-		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 
 		registryCredentials = "nexus"
         registry = "http://localhost:8081/"
@@ -14,7 +13,7 @@ pipeline {
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running
-        NEXUS_URL = "127.0.0.1:8081"
+        NEXUS_URL = "http://localhost:8081/"
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "nexus-release"
 	}
