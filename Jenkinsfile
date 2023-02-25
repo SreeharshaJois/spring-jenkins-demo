@@ -20,11 +20,6 @@ pipeline {
 	}
 
 	stages {
-		stage('Checkout'){
-			steps{
-				 git url: 'https://github.com/Bayvao/spring-jenkins-demo.git', branch: 'master'
-			}
-		}
 
 		stage('Build'){
 			steps{
