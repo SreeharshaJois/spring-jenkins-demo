@@ -16,6 +16,7 @@ pipeline {
         NEXUS_URL = "http://localhost:8081/"
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "nexus-release"
+        NEXUS_CREDENTIAL_ID = "nexus-credentials"
 	}
 	
 	tools {
