@@ -35,7 +35,7 @@ pipeline {
 
 		stage('Deploy') {
 			steps{
-			    bat "maven jar:jar deploy:deploy"
+			    bat "mvn jar:jar deploy:deploy"
 			}
 		}
 	}
