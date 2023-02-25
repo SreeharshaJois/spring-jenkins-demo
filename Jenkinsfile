@@ -18,6 +18,10 @@ pipeline {
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "nexus-release"
 	}
+	
+	tools {
+		jdk 'java-17'
+	}
 
 	stages {
 
