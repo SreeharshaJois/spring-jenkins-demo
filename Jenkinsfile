@@ -35,7 +35,7 @@ pipeline {
 
 		stage('Deploy') {
 			steps{
-				withMaven(maven: %mavenHome%, mavenSettingsConfig: 'C:\Users\Bayvao Verma\.m2\settings.xml') {
+				withMaven(maven: 'jenkins-maven', mavenSettingsConfig: 'C:\Users\Bayvao Verma\.m2\settings.xml') {
         				bat "mvn jar:jar deploy:deploy"
     				}
 			}
