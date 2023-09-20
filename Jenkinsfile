@@ -17,12 +17,17 @@ pipeline {
 				sh "mvn clean install -DskipTests"
 			}
 		}
-		stage('SonarQube Analysis') {
-   			 def mvn = tool 'jenkins-maven';
-    			withSonarQubeEnv() {
-     				 sh "mvn sonar:sonar"
-   			}
-  		}
+		 stage('SonarQube analysis') {
+      			steps {
+        			script {
+          			// requires SonarQube Scanner 2.8+
+          			scannerHome = tool 'sonarqube'
+       			 }
+        		withSonarQubeEnv('SonarQube Scanner') {
+         			 sh "${scannerHome}/bin/sonar-scanner"
+        		}
+      }
+    }
 		stage('Test'){
 			steps{
 				sh "mvn test"
