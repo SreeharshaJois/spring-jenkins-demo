@@ -17,7 +17,12 @@ pipeline {
 				sh "mvn clean install -DskipTests"
 			}
 		}
-
+		stage('SonarQube Analysis') {
+   			 def mvn = tool 'jenkins-maven';
+    			withSonarQubeEnv() {
+     				 sh "mvn sonar:sonar"
+   			}
+  		}
 		stage('Test'){
 			steps{
 				sh "mvn test"
